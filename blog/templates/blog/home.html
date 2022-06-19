@@ -3,7 +3,10 @@
 {% block content %}
     <ol>
         {% for post in object_list %}
-            <li> <a href="{% url 'blog:article-detail' post.pk %}"> {{ post.title }} </a> <br> {{ post.author.first_name }} <br> {{ post.author.last_name }} <br> <small><a href="{% url 'blog:update-post' post.pk %}">(Edit)</a></small><br> {{ post.body }} </li>
+            <li> <a href="{% url 'blog:article-detail' post.pk %}"> {{ post.title }} </a> <br> {{ post.author.first_name }} <br> {{ post.author.last_name }} <br> 
+                 <small><a href="{% url 'blog:update-post' post.pk %}">(Edit)</a></small><br> 
+                 <small><a href="{% url 'blog:delete-post' post.pk %}">(Delete)</a></small><br> 
+                 {{ post.body }} </li>
         {% endfor %}
     </ol>
 {% endblock %}
